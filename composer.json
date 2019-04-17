@@ -1,0 +1,10 @@
+{
+    "name": "vasily/telegram-bot-api",
+    "authors": [
+        {
+            "name": "Vasily Nayanov",
+            "email": "nayanov.vasily@yandex.ru"
+        }
+    ],
+    "require": {}
+}
