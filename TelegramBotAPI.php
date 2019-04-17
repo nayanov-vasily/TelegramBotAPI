@@ -1,7 +1,5 @@
 <?php
 
-namespace app\models\telegram;
-
 class TelegramBotAPI
 {
 	private $curl, $token, $assoc;
@@ -12,7 +10,7 @@ class TelegramBotAPI
 		$this->assoc = empty($options['assoc']) ? false : $options['assoc'];
 	}
 
-	private function exec($assoc = false)
+	private function exec()
 	{
 		$response = curl_exec($this->curl);
 
@@ -22,21 +20,13 @@ class TelegramBotAPI
 			throw new \Exception("Request Failed", 1);
 		}
 
-		$response = json_decode($response, $this->assoc);
-
-		if ($assoc) {
-			if ($response['ok'] === false) {
-				throw new \Exception($response['description'], 1);
-			}
-
-			return $response['result'];
-		}
+		$response = json_decode($response);
 
 		if ($response->ok === false) {
 			throw new \Exception($response->description, 1);
 		}
 
-		return $response->result;
+		return $this->assoc ? (array) $response->result : $response->result;
 	}
 
 	public function getUpdates($offset = 0/*, $limit = 100, $timeout = 0, $allowed_updates = ['message'] */)
@@ -50,7 +40,7 @@ class TelegramBotAPI
 		]);
 		curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, true);
 
-		return $this->exec(true);
+		return $this->exec();
 	}
 
 	public function deleteWebhook()
