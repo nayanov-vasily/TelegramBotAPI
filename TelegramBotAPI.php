@@ -10,11 +10,6 @@ class TelegramBotAPI
 		$this->assoc = empty($options['assoc']) ? false : $options['assoc'];
 	}
 
-	private function setopt($option, $value)
-	{
-		curl_setopt($this->curl, $option, $value);
-	}
-
 	private function exec()
 	{
 		$response = curl_exec($this->curl);
