@@ -1,5 +1,8 @@
 {
     "name": "vasily-nayanov/telegram-bot-api",
+    "description": "Telegram Bot API interface on PHP with curl.",
+    "version": "0.0.1",
+    "type": "library",
     "authors": [
         {
             "name": "Vasily Nayanov",
