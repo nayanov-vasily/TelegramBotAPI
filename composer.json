@@ -1,7 +1,7 @@
 {
     "name": "vasily-nayanov/telegram-bot-api",
     "description": "Telegram Bot API interface on PHP with curl.",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "type": "library",
     "minimum-stability": "stable",
     "authors": [
