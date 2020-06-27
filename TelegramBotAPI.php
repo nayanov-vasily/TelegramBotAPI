@@ -1,5 +1,7 @@
 <?php
 
+namespace VasilyNayanov\Telegram;
+
 class TelegramBotAPI
 {
     private $curl, $token, $assoc;
